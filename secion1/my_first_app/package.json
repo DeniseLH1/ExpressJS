@@ -1,0 +1,19 @@
+{
+  "name": "my_first_app",
+  "version": "0.0.1",
+  "description": "Mi primera aplicacicón con NodeJS y ExpressJS",
+  "keywords": [
+    "NoseJS",
+    "ExpressJS"
+  ],
+  "license": "ISC",
+  "author": "DeniseLH1",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "express": "^5.2.1"
+  }
+}
