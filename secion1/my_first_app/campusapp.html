@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CampusAPP</title>
+    <style>
+        .response{
+            border: 1px solid blue;
+            padding: 5px;
+            color: aqua;
+        }
+        #solicitar{
+            margin-top: 5px;
+        }
+        h2{
+            color: greenyellow;
+            background-color: black;
+        }
+    </style>
+</head>
+<body>
+    <h2>CampusAPP</h2>
+    <div class="response"></div>
+    <button id="solicitar">Solicitar</button>
+</body>
+<script>
+    const url_api= 'http://localhost:5000';
+
+    document.getElementById('solicitar').addEventListener('click',(event)=>{
+        const divResponse = document.querySelector('.response')
+        fetch(url_api).then(res=>{
+            return res.text();
+        }).then(resp=>{
+            divResponse.innerHTML(resp);
+        }).catch(err => console.error('Error:', err));
+    })
+</script>
+</html>
