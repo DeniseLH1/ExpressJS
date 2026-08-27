@@ -1,0 +1,27 @@
+{
+  "name": "secion2",
+  "version": "0.0.1",
+  "description": "Ejemplo de estados http y routers",
+  "main": "server.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon --watch secion2 --quiet",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "Nodejs",
+    "EspressJS",
+    "router",
+    "HTTP",
+    "status"
+  ],
+  "author": "DeniseLH1",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1"
+  },
+  "devDependencies": {
+    "dotenv": "^17.4.2",
+    "nodemon": "^3.1.14"
+  }
+}
