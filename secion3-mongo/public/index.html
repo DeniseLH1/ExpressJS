@@ -244,13 +244,14 @@
 
       fetch(`${url_api}/producto`,{
         method: 'POST',
-        body:{
+        headers:('content-type'),
+        body:JSON.stringify({
           codigo,
           nombre,
           descripcion,
           precio,
           activo
-        }
+        })
       }).then(resp=>{
         return resp.json();
       }).then(r=>{
