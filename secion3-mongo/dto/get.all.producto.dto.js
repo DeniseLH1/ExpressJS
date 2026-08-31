@@ -1,17 +1,15 @@
-export default class CrearProductoDTO{
+export default class GetAllProductoDTO{
+    id;
     codigo;
     nombre;
     precio;
     activo;
-    descripcion;
 
-    //contructor apra la data del frontend
     constructor(data){
         this.id =  data._id
         this.codigo = data.codigo;
         this.nombre = data.nombre;
         this.precio = data.precio;
         this.activo = data.activo;
-        this.descripcion = data.descripcion;
     }
 }
