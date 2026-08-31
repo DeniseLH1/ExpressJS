@@ -1,4 +1,5 @@
 import express from 'express';
+import {body,validationResult} from 'express-validator';
 //conexion a la base de datos 
 import { MongoClient,ObjectId } from 'mongodb';
 import CrearProductoDTO from '../dto/producto.dto.js';
@@ -10,10 +11,31 @@ const db = client.db(process.env.DB_NAME);
 
 //creacion de enrutador
 const productosRouter = express.Router();
+
+const validaciones = [
+    body('nombre').notEmply().withMenssage('El nombre es requerido.').isString().withMenssage('El nombre del producto debe ser una cadena.').trim(),
+];
 //creacion de productos
-productosRouter.post('/',async (req,res)=>{
-    const nuevoProducto= new CrearProductoDTO(req.body);
-    console.log(req.body)
+productosRouter.post('/', validaciones, async (req, res)=>{
+    try{
+        const errores = validationResult(req);
+        if(!errores.isEmpty()){
+            const nuevoProducto = new CreateProductoDTO(req.body);
+            const coleccionProducto = db.collection('productos');
+            await coleccionProducto.insertOne(nuevoProducto);
+            res.json({
+                status: 'ok',
+                mensaje: `Se creó un nuevo producto: ${nuevoProducto.codigo} - ${nuevoProducto.nombre}`
+            });
+        }
+        else {
+            res.status(400).json({status: 'fail', errors: errores.array()});
+        }
+    } catch(err){
+        console.log(err);
+    }
+    
+    // console.log(req.body)
     const coleccionProductos =  db.collection('productos');
     await coleccionProductos.insertOne(nuevoProducto);
     res.json({
@@ -48,3 +70,4 @@ productosRouter.get('/',async (req,res) =>{
 });
 
 export default productosRouter;
+
