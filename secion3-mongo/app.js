@@ -5,7 +5,7 @@ import bodyParser from 'body-parser';
 
 //variable de entorno 
 import 'dotenv/config';
-import productosRouter from './routers/productos.js';
+import productosRouter from './routers/productos.router.js';
 
 const app= express();
 

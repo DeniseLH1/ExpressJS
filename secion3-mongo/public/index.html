@@ -239,11 +239,13 @@
       const codigo = document.getElementById('codigo').value;
       const nombre = document.getElementById('nombre').value;
       const descripcion = document.getElementById('descripcion').value;
+      //parse float convierte a numerico
       let precio = parseFloat(document.getElementById('precio').value);
       let activo = document.getElementById('activo').value === 'on' ? true : false;
-    
+    //almacena en la base de datos usando post 
       fetch(`${apiUri}/producto`, {
         method: 'POST',
+        // application/json es para que sepa que lo que estamos enviando sea tipo json
         headers:{ 'content-type': 'application/json' },
         body: JSON.stringify({
           codigo,
@@ -252,6 +254,7 @@
           precio,
           activo
         })
+        // colocar catch par ael manejop de errores 
       }).then( resp =>{
         return resp.json();
       }).then( r => {
