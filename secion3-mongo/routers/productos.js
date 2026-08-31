@@ -1,7 +1,7 @@
 import express from 'express';
-
 //conexion a la base de datos 
 import { MongoClient,ObjectId } from 'mongodb';
+
 const client = new MongoClient(process.env.DB_URI);
 await client.connect();
 const db = client.db(process.env.DB_NAME);
@@ -11,6 +11,7 @@ const productosRouter = express.Router();
 //creacion de productos
 productosRouter.post('/',async (req,res)=>{
     const nuevoProducto= req.body;
+    console.log(req.body)
     const coleccionProductos =  db.collection('productos');
     await coleccionProductos.insertOne(nuevoProducto);
     res.json({

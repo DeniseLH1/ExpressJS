@@ -232,34 +232,33 @@
     </div>
   </div>
   <script>
-    const url_api='http://localhost:4000'
-    const btnSave=document.getElementById('btn-save');
-    btnSave.addEventListener('click',(event)=>{
+    const apiUri = 'http://localhost:4000';
+    const btnSave = document.getElementById('btn-save');
+    btnSave.addEventListener('click', (event)=>{
       event.preventDefault();
       const codigo = document.getElementById('codigo').value;
       const nombre = document.getElementById('nombre').value;
+      const descripcion = document.getElementById('descripcion').value;
       let precio = parseFloat(document.getElementById('precio').value);
-      const activo = document.getElementById('activo').value;
-      console.log(activo,typeof activo).value === 'on' ? true: false;
-
-      fetch(`${url_api}/producto`,{
+      let activo = document.getElementById('activo').value === 'on' ? true : false;
+    
+      fetch(`${apiUri}/producto`, {
         method: 'POST',
-        headers:('content-type'),
-        body:JSON.stringify({
+        headers:{ 'content-type': 'application/json' },
+        body: JSON.stringify({
           codigo,
           nombre,
           descripcion,
           precio,
           activo
         })
-      }).then(resp=>{
+      }).then( resp =>{
         return resp.json();
-      }).then(r=>{
-        if(r.status== 'ok'){
+      }).then( r => {
+        if(r.status == 'ok'){
           alert(r.mensaje);
         }
       });
-
     });
   </script>
 </body>

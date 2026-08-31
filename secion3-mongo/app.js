@@ -12,7 +12,7 @@ const app= express();
 // indica que usaremos un midleware
 app.use(express.json());
 
-app.use()
+app.use(bodyParser.urlencoded({ extended: true }));
 
 //para sevir archivos estaticos usando el siguiente midlleware la cual dira la ubicacion de la carpeta y luego la carpeta exacta en este caso public
 app.use(express.static(`${import.meta.dirname}/public`))
