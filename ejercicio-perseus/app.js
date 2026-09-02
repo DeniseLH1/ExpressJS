@@ -2,6 +2,7 @@ import express from 'express';
 import cookieParser from 'cookie-parser';
 import 'dotenv/config';
 import verificarAutenticacion from './utils/verificar-autenticacion.js';
+import usuarioRouter from './router/usu'
 
 const app = express();
 
