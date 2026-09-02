@@ -1,0 +1,24 @@
+-------SIGNIFICADO DE LOS NUMEROS EN EL SEMVER -----------------------
+v 1.0.0 -> Lanzamiento 
+v 1.0.1 -> Corrección de error o bug del sistema. Compatible con la versión anterior.
+v 1.2.0 -> Se agrego nueva característica .Compatible con la versión anterior.
+v 2.0.0 -> Cambios drásticos que no son compatibles con la versión anterior.
+---------------------------------------------------------------------
+Ejemplo v 1.3.4
+1 -> (MAJOR) si cambia este 1 significa un cambio que no es comaptible con versiones anteriores. 
+
+3 -> (MINOR) si este cambia solo son funcionalidades compatibles con otras versiones. 
+
+4 -> (PATCH) si este cambia son solo correcciones compatibles con otras versiones.
+
+==============================================================================================================================================
+
+----- ETIQUETAS DE VERSIONES PARA PRE-LANZAMIENTO ----------
+v 3.0.0.beta
+v 3.0.0.beta.1
+v 3.0.0.beta.2
+
+----- ETIQUETAS METODICAS DE COMPILACIÓN ---------------------
+v 3.0.0.release+build01
+v 3.0.0.release+build02
+v 3.0.0.release+build20
