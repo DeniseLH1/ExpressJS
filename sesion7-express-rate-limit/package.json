@@ -1,0 +1,22 @@
+{
+  "name": "sesion7-express-rate-limit",
+  "version": "1.0.0",
+  "description": "Limitar conexion de usuario",
+  "main": "app.js",
+  "type": "module",
+  "scripts": {
+    "dev": "nodemon sesion7-express-rate-limit --quiet",
+    "start": "node server.js"
+  },
+  "keywords": [
+    "NOdeJS",
+    "ExpressJS"
+  ],
+  "author": "DeniseLH1",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^5.2.1",
+    "express-rate-limit": "^8.7.0",
+    "nodemon": "^3.1.14"
+  }
+}
