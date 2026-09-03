@@ -1,6 +1,11 @@
 import { Router } from 'express';
 import { body } from 'express-validator';
-import { validatorHandler } from '../helpers/validation.handler';
+import {MongoClient} from 'mongodb';
+import { validatorHandler } from '../helpers/validation.handler.js';
+
+const client = new MongoClient(process.env.DB_URI);
+await client.connect();
+const db = client.db(process.env.DB_NAME);
 
 const userRouter = Router();
 
@@ -21,9 +26,14 @@ userRouter.get('/', (req, res)=>{
     res.send('Listando usuarios...')
 });
 
-userRouter.post('/', (req, res)=>{
+userRouter.post('/', async(req, res,next)=>{
     try{
-        res.send('Creando usuario...')
+        const result= await db.collection('usuarios').insertOne(new CrearUsuarioDTO(req.body))
+        res.json({
+            status: 'ok',
+            mensaje: `Se ha registrado al usuario ${result.username} con el id :${result._id}`
+        })
+
     }
     catch(error){
         (error);

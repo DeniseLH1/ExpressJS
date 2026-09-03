@@ -10,7 +10,7 @@ app.use(cookieParser(process.env.SECRET_KEY));
 app.use(express.json());
 
 app.post('/login',(req,res)=>{
-    res.cookie(process.env.AUTH_COOKIE,'Token',{signed:true});
+    res.cookie(process.env.AUTH_COOKIE,'Token',{signed:true,maxAge:2000});
     res.send('Login');
 })
 
